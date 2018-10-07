@@ -56,7 +56,8 @@ public class WaveSpawner : MonoBehaviour {
 
             if (waveCount + 1 == waves.Length)
             {
-                string message = "You defeated all the waves! \n Reload from the menu to play again";
+                //string message = "You defeated all the waves! \n Reload from the menu to play again";
+                string message = "The elevator is charged \n Proceed to next level";
                 UIHelperText.text = message;
                 helperTextAnim.Stop();
                 helperTextAnim.Play();
