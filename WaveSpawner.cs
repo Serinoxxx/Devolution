@@ -61,6 +61,7 @@ public class WaveSpawner : MonoBehaviour {
                 UIHelperText.text = message;
                 helperTextAnim.Stop();
                 helperTextAnim.Play();
+                GameController.instance.elevator.activate();
             }
             else
             {
