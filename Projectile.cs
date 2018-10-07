@@ -44,7 +44,7 @@ public abstract class Projectile : MonoBehaviour
 
         if (_damage > 0)
         {
-            if (other.gameObject.GetComponent<Health>())
+            if (other.gameObject.GetComponent<Health>() && other.gameObject.GetComponent<Health>() != ownerHealth)
             {
                 other.gameObject.GetComponent<Health>().TakeDamage(_damage, ownerHealth.gameObject);
             }

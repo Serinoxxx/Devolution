@@ -75,6 +75,8 @@ public class Inventory : MonoBehaviour {
         }
     }
 
+    
+
     public void addItem(Item item)
     {
         if (items.Count < maxItems)

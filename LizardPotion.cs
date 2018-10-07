@@ -19,9 +19,11 @@ public class LizardPotion : Potion {
 
         reptileClaw = item.owner.GetComponentInChildren<Equippables>().ActivateItem("reptileClaw");
         item.owner.GetComponentInChildren<Equippables>().ActivateItem("LizardHead");
-        inv.forceEquip(reptileClaw);
-        inv.addItem(reptileClaw);
-        inv.selectItem(inv.items.IndexOf(reptileClaw));
+        inv.deselectCurrentItem();
+        inv.equippedItem = reptileClaw;
+        // inv.forceEquip(reptileClaw);
+        // inv.addItem(reptileClaw);
+        // inv.selectItem(inv.items.IndexOf(reptileClaw));
 
         item.owner.GetComponentInChildren<Equippables>().DeactivateItem("mainHead");
     }
@@ -30,7 +32,8 @@ public class LizardPotion : Potion {
     {
 
         item.owner.GetComponent<Animator>().SetInteger("mutationState", (int)Enums.MutationStateType.none);
-        inv.removeItem(reptileClaw);
+        // inv.removeItem(reptileClaw);
+        inv.equippedItem = null;
 
         item.owner.GetComponentInChildren<Equippables>().DeactivateItem("reptileClaw");
         item.owner.GetComponentInChildren<Equippables>().DeactivateItem("LizardHead");

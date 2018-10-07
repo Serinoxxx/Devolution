@@ -17,9 +17,11 @@ public class SpiderPotion : Potion
 
         spiderClaw = item.owner.GetComponentInChildren<Equippables>().ActivateItem("spiderClaw");
         item.owner.GetComponentInChildren<Equippables>().ActivateItem("spiderHead");
-        inv.forceEquip(spiderClaw);
-        inv.addItem(spiderClaw);
-        inv.selectItem(inv.items.IndexOf(spiderClaw));
+        inv.deselectCurrentItem();
+        inv.equippedItem = spiderClaw;
+        // inv.forceEquip(spiderClaw);
+        // inv.addItem(spiderClaw);
+        // inv.selectItem(inv.items.IndexOf(spiderClaw));
 
 
         item.owner.GetComponentInChildren<Equippables>().DeactivateItem("mainHead");
@@ -29,7 +31,8 @@ public class SpiderPotion : Potion
     public override void ExpireEffectsOvrd()
     {
         item.owner.GetComponent<Animator>().SetInteger("mutationState", (int)Enums.MutationStateType.none);
-        inv.removeItem(spiderClaw);
+        //inv.removeItem(spiderClaw);
+        inv.equippedItem = null;
 
         item.owner.GetComponentInChildren<Equippables>().DeactivateItem("spiderClaw");
         item.owner.GetComponentInChildren<Equippables>().DeactivateItem("spiderHead");
